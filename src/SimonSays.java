@@ -22,7 +22,7 @@ public class SimonSays extends KeyAdapter {
 
 	// Complete steps 1 - 7 before you test
 	// 1. Declare a JFrame variable
-	
+	JFrame frame;
 	HashMap<Integer, String> images = new HashMap<Integer, String>();
 	private int imageIndex;
 	private int tries = 0;
@@ -32,11 +32,15 @@ public class SimonSays extends KeyAdapter {
 	private void makeAlbum() {
 		// 2. Add the four images that match keyboard keys like this: 
 		//images.put(new Integer(KeyEvent.VK_UP), "up.jpg");
-
+		images.put(new Integer(KeyEvent.VK_UP), "up.jpg");
+		images.put(new Integer(KeyEvent.VK_DOWN), "down.jpg");
+		images.put(new Integer(KeyEvent.VK_LEFT), "left.jpg");
+		images.put(new Integer(KeyEvent.VK_RIGHT), "right.jpg");
 		// 3. Use a JOptionPane to tell the user the rules: "Press the matching key when
 		// 'Simon says' otherwise press a different key"
-		
+		JOptionPane.showMessageDialog(null, "Press the key that Fassad says. If no 'Fassad says,' press a different key.");
 		// 4. Call the showImage method to show an image
+		//showImage("up.jpg");
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -69,27 +73,35 @@ public class SimonSays extends KeyAdapter {
 
 	private void showImage() {
 		// 5. Initialize your frame to a new JFrame()
-		
+		frame = new JFrame();
 		// 6. Set the frame to visible
-
+		frame.setVisible(true);
 		// 7. Uncomment the following line to add a random image to your frame
-		//frame.add(getNextRandomImage());
-
+		frame.add(getNextRandomImage());
 		// 8. Set the name of your frame
-
+		frame.setName("Epic Mother 3 Reference");
 		// 9. Pack the frame
-		
+		frame.pack();
 		// 10. Set the defaultCloseOperation of your from to JFrame.EXIT_ON_CLOSE
-		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// 11. Add a key listener to the frame
-
+		frame.addKeyListener(this);
 		// 12. Create a new instance of Random
-
+		Random funny = new Random();
 		// 13. Use the Random and the speak method to either say 
 		// "Simon says press this key" or "Press this key"
-
+		int oof = funny.nextInt(4);
+		if(oof == 0) {
+			speak("Fassad says press up");
+		}else if(oof == 1) {
+			speak("Fassad says press down");
+		}else if(oof == 2) {
+			speak("Fassad says press left");
+		}else {
+			speak("Fassad says press right");
+		}
 		// 14. Above, set the value of simonSays to true/false appropriately
-
+		
 		
 	}
 
