@@ -52,31 +52,30 @@ public class Jeopardy implements ActionListener {
 		frame.setLayout(new BorderLayout());
 
 		// 1. Make the frame show up
-
+		frame.setVisible(true);
 		// 2. Give your frame a title
-
+		frame.setTitle("What is Jeopardy?");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
-
+		JPanel panel = new JPanel();
+		panel.add(createHeader("Dead Memes, Dead Dreams"));
 		// 4. Add the header component to the quizPanel
-
+		quizPanel.add(panel);
 		// 5. Add the quizPanel to the frame
-
+		frame.add(quizPanel);
 		// 6. Use the createButton method to set the value of firstButton
-
+		firstButton = createButton("300$");
 		// 7. Add the firstButton to the quizPanel
-
+		quizPanel.add(firstButton);
 		// 8. Write the code to complete the createButton() method below. Check that your
 		// game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
-
-		// 9. Use the secondButton variable to hold a button using the createButton
-		// method
-
+		// 9. Use the secondButton variable to hold a button using the createButton method
+		firstButton = createButton("200$");
 		// 10. Add the secondButton to the quizPanel
-
+		quizPanel.add(firstButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
-
+		firstButton.addActionListener(this);
+		secondButton.addActionListener(this);
 		// 12. Write the code to complete the actionPerformed() method below
-
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
 		
 		 /*
@@ -95,14 +94,13 @@ public class Jeopardy implements ActionListener {
 	private JButton createButton(String dollarAmount) {
 		
 		// Create a new JButton
-
+		JButton neww = new JButton();
 		// Set the text of the button to the dollarAmount
-
+		neww.setText(dollarAmount);
 		// Increment the buttonCount (this should make the layout vertical)
-
+		buttonCount++;
 		// Return your new button instead of the temporary button
-
-		return new JButton("temporary button");
+		return neww;
 	}
 
 	public void actionPerformed(ActionEvent e) {
