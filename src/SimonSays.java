@@ -65,7 +65,7 @@ public class SimonSays extends KeyAdapter {
 			// 20.  Increase the value of score
 			points++;
 			// 21. Use the speak method to tell the user they were correct
-			speak("Coooooooooorrect!");
+			speak("Gooooooood job!");
 		}else if(e.getKeyCode() == imageIndex && simonSays == false) {
 			speak("Wrong! You stupid");
 		}
