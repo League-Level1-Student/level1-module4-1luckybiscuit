@@ -134,7 +134,7 @@ public class Jeopardy implements ActionListener {
 		}
 		// Clear the text on the button that was pressed (set the button text to nothing)
 		else if(buttonPressed == thirdButton) {
-			askQuestion("These memes, classified a period of time, are the worst.", "JANUARY MEMES", 600);
+			askQuestion("The worst month for memes", "JANUARY", 600);
 		}
 		else if(buttonPressed == fourthButton) {
 			askQuestion("Greentext protagonist.", "ANON", 800);
