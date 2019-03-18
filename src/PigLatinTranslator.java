@@ -1,7 +1,38 @@
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class PigLatinTranslator {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PigLatinTranslator implements ActionListener {
+	JFrame hey= new JFrame();
+	JPanel now = new JPanel();
+	JTextField youre = new JTextField();
+	JButton an = new JButton();
+	JTextField allstar = new JTextField();
+	String zhrek = youre.getText();
+	Dimension allstarSize = new Dimension(200,100);
+	void createUI() {
+		hey.setVisible(true);
+		hey.setDefaultCloseOperation(hey.EXIT_ON_CLOSE);
+		hey.add(now);
+		now.add(youre);
+		now.add(an);
+		now.add(allstar);
+		youre.setPreferredSize(new Dimension(300,60));
+		an.setPreferredSize(new Dimension(200,80));
+		an.setText("Translate");
+		an.addActionListener(this);
+		allstar.setPreferredSize(new Dimension(300,60));
+		allstar.setEditable(false);
+		hey.pack();
+		}
 	public static void main(String[] args) {
-		
+		PigLatinTranslator bigFatInTransitLater = new PigLatinTranslator();
+		bigFatInTransitLater.createUI();
 	}
      /**
      * Method to test whether a character is a letter or not.
@@ -67,4 +98,10 @@ public class PigLatinTranslator {
                     return i;
                return 0;
      }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		allstar.setText(translate(youre.getText()));
+		allstarSize = new Dimension(zhrek.length() * 10, zhrek.length() * 3);
+	}
 }
