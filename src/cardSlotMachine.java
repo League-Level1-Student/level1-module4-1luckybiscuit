@@ -2,7 +2,6 @@ import java.applet.AudioClip;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
@@ -20,28 +19,24 @@ import javax.swing.JPanel;
 public class cardSlotMachine implements ActionListener {
 		JFrame I = new JFrame();
 		JPanel think = new JPanel();
-		JPanel think2 = new JPanel();
 		private AudioClip sound;
 		int winCount = 0;
 		void motomoto() {
 			think = new JPanel();
-			think2 = new JPanel();
-			GridBagConstraints eh = new GridBagConstraints();
-			eh.weightx=800;
-			eh.weighty=800;
-			I.add(think2, eh);
 			I.add(think);
-			I.setLayout(new GridBagLayout());
 			I.setVisible(true);
 			I.setDefaultCloseOperation(I.EXIT_ON_CLOSE);
+			//JLabel spacer = new JLabel();
+			//spacer.setPreferredSize(new Dimension(550, 20));
 			JButton plumpy = new JButton();
 			plumpy.setText("SPIN");
 			plumpy.addActionListener(this);
-			think2.add(plumpy);	
+			plumpy.setPreferredSize(new Dimension(50, 20));
+			think.add(plumpy);	
 			JLabel big = new JLabel();
 			big.setText("Wins: " + String.valueOf(winCount));
-			think2.add(big);
-			think2.setPreferredSize(new Dimension(1250,100));
+			big.setPreferredSize(new Dimension(1050, 20));
+			think.add(big);
 			I.pack();
 		    }
 		int kowalski() {
@@ -66,12 +61,11 @@ public class cardSlotMachine implements ActionListener {
 				// TODO Auto-generated method stub
 				I.dispose();
 				I.remove(think);
-				I.remove(think2);
 				motomoto();
 				int yote = kowalski();
 				int yate = kowalski();
 				int yoot = kowalski();
-				think.setPreferredSize(new Dimension(1250,1000));
+				think.setPreferredSize(new Dimension(1150,550));
 				I.pack();
 				if(yote == yate && yate == yoot) {
 					JOptionPane.showMessageDialog(null, "You Win!!!");
